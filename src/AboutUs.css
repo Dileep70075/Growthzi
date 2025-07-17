@@ -1,0 +1,68 @@
+.about-section {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: auto;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.about-container h1 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.about-intro {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #4b5563;
+}
+
+.about-content p {
+  font-size: 16px;
+  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.about-highlights {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.about-highlights div {
+  flex: 1;
+  background: #f3f4f6;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.about-highlights div:hover {
+  background: #e0f2fe;
+  transform: translateY(-5px);
+}
+
+.about-highlights h3 {
+  font-size: 20px;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.about-highlights p {
+  color: #6b7280;
+  font-size: 15px;
+}

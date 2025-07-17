@@ -1,0 +1,209 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.main-container {
+  height: 100vh;
+  width: 100%;
+  top: 0%;
+  position: fixed;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1976d2;
+  padding: 10px 20px;
+  color: white;
+}
+
+.nav-left a,
+.nav-right button {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: 500;
+}
+
+.nav-left a:hover {
+  text-decoration: underline;
+}
+
+.nav-center {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.edit-btn {
+  background-color: #5c6bc0;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.hero-section {
+  background-image: url('./Images/WhatsApp\ Image\ 2025-07-16\ at\ 16.14.35_ad465b2c.jpg'); /* Place building.jpg in your public folder */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 120vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.overlay-content {
+    margin-top: 90px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px;
+}
+
+.overlay-content h1 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.overlay-content p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  padding: 10px 20px;
+  border: 2px dashed #888;
+  background: transparent;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.connect-domain-btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #6750a4;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.Main-Container{
+    margin-top: 51px;
+    height: 100vh;
+    width: 100%;
+    top: 0%;
+    position: fixed;
+    overflow: auto;
+    scrollbar-width: none; /* Firefox */
+}
+.Main-Container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.vision-section {
+  flex: 1; /* Grow to fill flex space */
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vision-content {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  text-align: left;
+}
+
+.image-section {
+  flex: 1;
+  background-image: url('./Images/WhatsApp\ Image\ 2025-07-16\ at\ 16.14.49_3541dd91.jpg'); /* Replace with actual image path */
+  background-size: cover;
+  height: 100vh;
+  width: 50%;
+  background-position: center;
+}
+
+
+
+
+.button-group {
+  display: flex;
+  width: 300px;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 8px 12px;
+  gap: 10px;
+  margin-left: 170px;
+  margin-top: 520px;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  z-index: 1000;
+}
+
+.btn {
+  background: none;
+  border: none;
+  color: #d35400;
+  font-weight: 500;
+  font-size: 14px;
+  /* display: flex; */
+  align-items: center;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: rgba(211, 84, 0, 0.1);
+}
+
+.icon {
+  margin-right: 6px;
+}
+
+.divider {
+  color: #d35400;
+  font-weight: bold;
+}
+
+.editable-paragraph {
+  position: relative;
+  display: inline-block;
+}
+
+.edit-icon {
+  display: none;
+  position: absolute;
+  right: -32px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 2px;
+  z-index: 10;
+}
+
+.editable-paragraph:hover .edit-icon {
+  display: inline-block;
+}
