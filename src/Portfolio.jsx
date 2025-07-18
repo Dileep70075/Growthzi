@@ -19,7 +19,7 @@ function App() {
     console.log('Submitting form data:', formData); // Logs to browser console
 
     try {
-      const res = await axios.post('http://localhost:3001/users/saveOrUpdateText', formData);
+      await axios.post('http://localhost:3001/users/saveOrUpdateText', formData);
       alert('Message Sent Successfully!');
       setFormData({ name: '', email: '', text: '' });
     } catch (err) {
