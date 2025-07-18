@@ -36,16 +36,9 @@ exports.saveOrUpdateText = async (req, res) => {
       const messages = Object.values(error.errors).map(err => err.message);
       return res.status(400).json({ message: messages.join(', ') });
     }
-    res.status(500).json({ message: 'Internal Server Error' });
+    return new Response("Internal Server Error", { status: 500 });
   }
 };
-
-
-
-
-
-
-
 
 exports.createTextContent = async (req, res) => {
   try {
@@ -54,7 +47,7 @@ exports.createTextContent = async (req, res) => {
     // Do NOT save to database
     res.status(200).json(newContent);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+   return new Response("Internal Server Error", { status: 500 });
   }
 };
 exports.updateTextContent = async (req, res) => {
@@ -79,7 +72,7 @@ exports.updateTextContent = async (req, res) => {
     });
 
   } catch (error) {
-    res.status(400).json({ message: error.message });
+   return new Response("Internal Server Error", { status: 500 });
   }
 };
 
@@ -99,7 +92,7 @@ exports.registerUser = async (req, res) => {
     await newUser.save();
     res.status(201).json({ message: "User registered successfully!", newUser });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+   return new Response("Internal Server Error", { status: 500 });
   }
 };
 exports.loginUser = async (req, res) => {
@@ -122,7 +115,7 @@ exports.loginUser = async (req, res) => {
     }
 }
 catch (error) {
-    res.status(200).json({ message: error.message ? error.message : error })
+    return new Response("Internal Server Error", { status: 500 });
 }
 };
 exports.deleteUser = async (req, res) => {
@@ -153,7 +146,7 @@ exports.deleteUser = async (req, res) => {
     return res.status(200).json({ message: "User deleted and backed up successfully", success: true });
   } catch (error) {
     console.error("Error deleting user:", error);
-    return res.status(500).json({ message: error.message || "Internal Server Error" });
+   return new Response("Internal Server Error", { status: 500 });
   }
 };
 exports.getUsers = async (req, res) => {
@@ -161,7 +154,7 @@ exports.getUsers = async (req, res) => {
     const users = await User.find({ status: "active" });
     res.status(200).json(users);
   } catch (error) {
-    res.status(500).json({ message: "Failed to fetch users" });
+    return new Response("Internal Server Error", { status: 500 });
   }
 };
 exports.getUserById = async (req, res) => {
@@ -171,9 +164,10 @@ exports.getUserById = async (req, res) => {
 
     res.status(200).json(user);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return new Response("Internal Server Error", { status: 500 });
   }
 };
+
 exports.updateUser = async (req, res) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -181,7 +175,7 @@ exports.updateUser = async (req, res) => {
 
     res.status(200).json({ message: "User updated successfully", updatedUser });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return new Response("Internal Server Error", { status: 500 });
   }
 };
 
