@@ -30,14 +30,10 @@ exports.saveOrUpdateText = async (req, res) => {
       data: entry,
     });
 
-  } catch (error) {
-    console.error('Error:', error);
-    if (error.name === 'ValidationError') {
-      const messages = Object.values(error.errors).map(err => err.message);
-      return res.status(400).json({ message: messages.join(', ') });
-    }
-    return new Response("Internal Server Error", { status: 500 });
-  }
+  } catch (err) {
+  console.error(err);
+  return new Response("Internal Server Error", { status: 500 });
+}
 };
 
 exports.createTextContent = async (req, res) => {
@@ -46,9 +42,10 @@ exports.createTextContent = async (req, res) => {
     const newContent = new TextContent({ text });
     // Do NOT save to database
     res.status(200).json(newContent);
-  } catch (error) {
-   return new Response("Internal Server Error", { status: 500 });
-  }
+  } catch (err) {
+  console.error(err);
+  return new Response("Internal Server Error", { status: 500 });
+}
 };
 exports.updateTextContent = async (req, res) => {
   try {
@@ -71,9 +68,10 @@ exports.updateTextContent = async (req, res) => {
       content: previewContent,
     });
 
-  } catch (error) {
-   return new Response("Internal Server Error", { status: 500 });
-  }
+  } catch (err) {
+  console.error(err);
+  return new Response("Internal Server Error", { status: 500 });
+}
 };
 
 exports.registerUser = async (req, res) => {
@@ -91,9 +89,10 @@ exports.registerUser = async (req, res) => {
      });
     await newUser.save();
     res.status(201).json({ message: "User registered successfully!", newUser });
-  } catch (error) {
-   return new Response("Internal Server Error", { status: 500 });
-  }
+  } catch (err) {
+  console.error(err);
+  return new Response("Internal Server Error", { status: 500 });
+}
 };
 exports.loginUser = async (req, res) => {
   try {
@@ -114,8 +113,9 @@ exports.loginUser = async (req, res) => {
         return res.status(200).json({ message: 'user not found', success: false });
     }
 }
-catch (error) {
-    return new Response("Internal Server Error", { status: 500 });
+catch (err) {
+  console.error(err);
+  return new Response("Internal Server Error", { status: 500 });
 }
 };
 exports.deleteUser = async (req, res) => {
@@ -144,18 +144,19 @@ exports.deleteUser = async (req, res) => {
     );
 
     return res.status(200).json({ message: "User deleted and backed up successfully", success: true });
-  } catch (error) {
-    console.error("Error deleting user:", error);
-   return new Response("Internal Server Error", { status: 500 });
-  }
+  } catch (err) {
+  console.error(err);
+  return new Response("Internal Server Error", { status: 500 });
+}
 };
 exports.getUsers = async (req, res) => {
   try {
     const users = await User.find({ status: "active" });
     res.status(200).json(users);
-  } catch (error) {
-    return new Response("Internal Server Error", { status: 500 });
-  }
+  } catch (err) {
+  console.error(err);
+  return new Response("Internal Server Error", { status: 500 });
+}
 };
 exports.getUserById = async (req, res) => {
   try {
@@ -163,9 +164,10 @@ exports.getUserById = async (req, res) => {
     if (!user) return res.status(400).json({ message: "User not found" });
 
     res.status(200).json(user);
-  } catch (error) {
-    return new Response("Internal Server Error", { status: 500 });
-  }
+  } catch (err) {
+  console.error(err);
+  return new Response("Internal Server Error", { status: 500 });
+}
 };
 
 exports.updateUser = async (req, res) => {
@@ -174,8 +176,9 @@ exports.updateUser = async (req, res) => {
     if (!updatedUser) return res.status(400).json({ message: "User not found" });
 
     res.status(200).json({ message: "User updated successfully", updatedUser });
-  } catch (error) {
-    return new Response("Internal Server Error", { status: 500 });
-  }
+  } catch (err) {
+  console.error(err);
+  return new Response("Internal Server Error", { status: 500 });
+}
 };
 
