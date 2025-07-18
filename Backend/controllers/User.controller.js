@@ -59,7 +59,7 @@ exports.updateTextContent = async (req, res) => {
 
     // Step 2: If content not found
     if (!existingContent) {
-      return res.status(404).json({ message: 'TextContent not found' });
+      return res.status(400).json({ message: 'TextContent not found' });
     }
 
     // Step 3: Show updated data but do NOT save to database
@@ -127,7 +127,7 @@ exports.deleteUser = async (req, res) => {
     }
     const user = await User.findById(id);
     if (!user) {
-      return res.status(404).json({ message: "User not found", success: false });
+      return res.status(400).json({ message: "User not found", success: false });
     }
     const deletedUser = new DeletedUser({
       name: user.name,
@@ -160,7 +160,7 @@ exports.getUsers = async (req, res) => {
 exports.getUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
-    if (!user) return res.status(404).json({ message: "User not found" });
+    if (!user) return res.status(400).json({ message: "User not found" });
 
     res.status(200).json(user);
   } catch (error) {
@@ -171,7 +171,7 @@ exports.getUserById = async (req, res) => {
 exports.updateUser = async (req, res) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!updatedUser) return res.status(404).json({ message: "User not found" });
+    if (!updatedUser) return res.status(400).json({ message: "User not found" });
 
     res.status(200).json({ message: "User updated successfully", updatedUser });
   } catch (error) {

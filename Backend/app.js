@@ -38,9 +38,9 @@ app.use('/uploads', express.static('uploads'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-// ✅ Handle 404 Errors
+
 app.use(function(req, res, next) {
-  next(createError(404));
+  next(createError(400));
 });
 
 // ✅ Global Error Handler
